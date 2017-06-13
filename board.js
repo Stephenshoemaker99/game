@@ -7,20 +7,33 @@
                 for (var num = 0; num< rows*collumns; num++){
                    
                     if (rowcount <= rows){
-                         TileArray[num] = String.fromCharCode(96 + collumncount) + rowcount;
+                         if (toggle == 'True'){
+                            TileArray[num] = '<td bgcolor= "#331a00">' + '<img src ="grass1.png" style="width:40px;height:40px;" >' + '</td>';
+                            toggle = 'False'
+                        } else{
+                            TileArray[num] ='<td bgcolor= "#ffffff">' + '<img src ="grass2.png" style="width:40px;height:40px;" >' + '</td>';
+                            toggle = 'True'
+                        }
                          rowcount ++;
                     } else {
                         rowcount = 1;
-                        collumncount ++;
-                        TileArray[num] = String.fromCharCode(96 + collumncount) + rowcount;
+                         if (toggle == 'True'){
+                       
+                        TileArray[num] ='<td bgcolor= "#ffffff">' + '<img src ="grass2.png" style="width:40px;height:40px;" >' + '</td>';
+                        toggle = 'True'
+                        } else{
+                      
+                         TileArray[num] ='<td bgcolor= "#331a00">' + '<img src ="grass1.png" style="width:40px;height:40px;" >' + '</td>';
+                        toggle = 'False'
+                        }
                         rowcount ++;
                     }
                 }   
                 return TileArray
 
              }      
-            var rows = 10
-            var collumns = 10
+            var rows = 30
+            var collumns = 30
             var TileArray = nameloop(rows,collumns)
             var nums = 0
             var toggle = 'True'
@@ -33,22 +46,11 @@
             for (var i=0; i< (collumns); i++) {
                 board += "<tr>";
                 for (var z = 0; z < rows; z ++){
-                   if (toggle == 'True'){
-                        board +='<td bgcolor= "#331a00">' + '<img src ="blank.png" style="width:40px;height:40px;" >' + '</td>';
-                        toggle = 'False'
-                    } else{
-                        board +='<td bgcolor= "#ffffff">' + '<img src ="blank.png" style="width:40px;height:40px;" >' + '</td>';
-                        toggle = 'True'
-                    }
+                   board += TileArray[nums]
 
-                    nums++;
+                    nums++;   
                    }
-                if (toggle == 'True'){
-                    toggle = 'False';
-                }else{
-                    toggle = 'True'
-                }
-                    }
-                board += "</tr>";   
+                board += "</tr>";
+            }
         board+= "</table>";
         document.write( board);
