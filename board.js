@@ -4,14 +4,16 @@
             var TileArray = Array();
                 var rowcount = 1;
                 var collumncount = 1;
+                var tex1 ='<img src ="grass1.png" style="width:px;height:40px;" >'
+                var tex2 = '<img src ="grass2.png" style="width:40px;height:40px;" >'
                 for (var num = 0; num< rows*collumns; num++){
                    
                     if (rowcount <= rows){
                          if (toggle == 'True'){
-                            TileArray[num] = '<td bgcolor= "#331a00">' + '<img src ="grass1.png" style="width:40px;height:40px;" >' + '</td>';
+                            TileArray[num] = '<td>' + tex1 + '</td>';
                             toggle = 'False'
                         } else{
-                            TileArray[num] ='<td bgcolor= "#ffffff">' + '<img src ="grass2.png" style="width:40px;height:40px;" >' + '</td>';
+                            TileArray[num] ='<td>' + tex2 + '</td>';
                             toggle = 'True'
                         }
                          rowcount ++;
@@ -19,11 +21,11 @@
                         rowcount = 1;
                          if (toggle == 'True'){
                        
-                        TileArray[num] ='<td bgcolor= "#ffffff">' + '<img src ="grass2.png" style="width:40px;height:40px;" >' + '</td>';
+                        TileArray[num] ='<td>' + tex2 + '</td>';
                         toggle = 'True'
                         } else{
                       
-                         TileArray[num] ='<td bgcolor= "#331a00">' + '<img src ="grass1.png" style="width:40px;height:40px;" >' + '</td>';
+                         TileArray[num] ='<td>' + tex1 + '</td>';
                         toggle = 'False'
                         }
                         rowcount ++;
