@@ -4,6 +4,7 @@
     var collumncount = 1;
     var tex1 ='<img src ="grass1.png" style="width:px;height:40px;" >'
     var tex2 = '<img src ="grass2.png" style="width:40px;height:40px;" >'
+    var toggle = 'True'
         for (var num = 0; num< rows*collumns; num++){
             if (rowcount <= rows){
                 if (toggle == 'True'){
